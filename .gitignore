@@ -1,0 +1,9 @@
+*.asv
+*.prj
+*.log
+*.jpg
+Thumbs.db
+*.nml
+*.swp
+*.pyc
+*.swo
