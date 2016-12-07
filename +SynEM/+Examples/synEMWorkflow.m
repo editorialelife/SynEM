@@ -12,8 +12,11 @@ end
 
 m = load('TestSet_raw_seg');
 raw = m.raw;
-seg = m.seg;
-raw = raw(101:end-100,101:end-100,41:end-40);
+seg = m.segments;
+fm = SynEM.getFeatureMap('paper');
+b = fm.border./2;
+raw = raw(101-b(1):end-100+b(1),101-b(2):end-100+b(2), ...
+           41-b(3):end-40+b(3));
 seg = seg(101:end-100,101:end-100,41:end-40);
 
 %% Interface calculation for a segmentation
