@@ -36,8 +36,6 @@ try
     if ~exist('cluster','var') || isempty(cluster)
         try
             cluster = getCluster('cpu');
-        catch
-            cluster = parcluster();
         end
     end
     job = SynEM.Util.startJob(cluster,@jobWrapper,inputCell,0);
