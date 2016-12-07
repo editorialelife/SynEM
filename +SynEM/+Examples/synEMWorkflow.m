@@ -51,9 +51,9 @@ X = fm.calculate(interfaces, raw);
 
 m = load('TestSet_raw_seg.mat');
 raw = m.raw;
-seg = m.seg;
+seg = m.segments;
 [data, metadata] = SynEM.Util.convertForSynapseAnnotationGUI(raw, seg, ...
-    interfaces, edges, [512, 512, 256]);
+    edges, interfaces, [512, 512, 256]);
 if ~exist('TestCube.mat','file')
     save('TestCube.mat', 'data', 'metadata');
 else
