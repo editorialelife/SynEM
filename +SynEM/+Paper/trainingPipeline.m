@@ -1,5 +1,5 @@
 function trainingPipeline( dataFolder, saveFolder, fm, noTest, ...
-    labelType, ensembleArgs )
+    labelType, ensembleArgs, cluster )
 %TRAININGPIPELINE Training pipeline for SynEM classifiers.
 % INPUT dataFolder: string
 %           Path to training data folder.
@@ -15,6 +15,9 @@ function trainingPipeline( dataFolder, saveFolder, fm, noTest, ...
 %       ensembleArgs: (Optional) [2Nx1] cell
 %           Cell array of name value pairs for
 %           SynEM.Classifier.BoostedEnsemble.train.
+%       cluster: (Optional) parallel.cluster object
+%           Cluster object used for calculation.
+%           (Default: getCluster('cpu') if this function exists)
 % Author: Benedikt Staffler <benedikt.staffler@brain.mpg.de>
 
 if ~exist('noTest','var') || isempty(noTest)
@@ -22,6 +25,9 @@ if ~exist('noTest','var') || isempty(noTest)
 end
 if ~exist('labelType','var') || isempty(labelType)
     labelType = 'direction';
+end
+if ~exist('cluster','var') || isempty(cluster)
+    cluster = [];
 end
 
 dataFolder = SynEM.Util.addFilesep(dataFolder);
@@ -34,7 +40,7 @@ fprintf('[%s] Results are stored in %s.\n', datestr(now), saveFolder);
 
 fprintf('[%s] Calculating features.\n', datestr(now));
 job = SynEM.Training.calculateFeaturesForTrainingData( dataFolder, ...
-    saveFolder, fm, true);
+    saveFolder, fm, true, cluster);
 
 wait(job);
 
