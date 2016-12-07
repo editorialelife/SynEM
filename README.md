@@ -25,6 +25,6 @@ SynEM main folder with the SynEM main folder set to the working directory.
 
 Code was tested with MATLAB R2015b.
 
-Examples for code are contained in the module SynEM.Examples.
+Examples for code are contained in the package SynEM.Examples.
 
 
