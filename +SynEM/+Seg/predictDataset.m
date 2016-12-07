@@ -20,7 +20,7 @@ function [p, job] = predictDataset( p, fm, classifier, outputFile, ...
 %           (Default: 'synapseScores.mat')
 %       cluster: (optional) parallel.cluster object
 %           Cluster object to submit jobs.
-%           (Default: getCluster('cpu');
+%           (Default: parcluster())
 %       cubeIdx: (optional) [1xN] int
 %           Linear or logical indices of the cubes in p.local for which the
 %           prediction is done.
@@ -74,13 +74,13 @@ function jobWrapper(p, i, fm, classifier, outputFile)
 
 scores = SynEM.Seg.predictCube(p, i, fm, classifier);
 scores = scores(:,1); %for default matlab classifiers
-if strcmp(fm.mode,'direction')
+if strcmp(fm.mode, 'direction')
     %both direction of one interface in a row
-    scores = reshape(scores,[],2); %#ok<NASGU>
+    scores = reshape(scores, [], 2); %#ok<NASGU>
 end
 outputFile = [p.local(i).saveFolder outputFile];
 fprintf(['[%s] SynEM.Seg.predictCube - Saving output to ' ...
     'cube %s.\n'], datestr(now), outputFile);
-save(outputFile,'scores');
+save(outputFile, 'scores');
 
 end

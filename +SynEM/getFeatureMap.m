@@ -1,7 +1,7 @@
 function fm = getFeatureMap( name )
 %GETFEATUREMAP Create a predefined feature map.
 % INPUT name: string
-%       Name of the feature map (see below).
+%           Name of the feature map (see below).
 % OUTPUT fm: SynEM.FeatureMap object
 % Author: Benedikt Staffler <benedikt.staffler@brain.mpg.de>
 
@@ -84,7 +84,6 @@ switch name
         
     otherwise
         error('Feature map %s not defined.', name);
-
-
+end
 end
 

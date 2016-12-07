@@ -25,6 +25,10 @@ SynEM main folder with the SynEM main folder set to the working directory.
 
 Code was tested with MATLAB R2015b.
 
-Examples for code are contained in the package SynEM.Examples.
+Examples for code are contained in the package SynEM.Examples:
+* neuron2neuronErrorEstimates.m: How to use the error estimation framework
+* synEMWorkflow.m: Direct application of SynEM using only a volume
+segmentation and raw data array
+* predictDataset.m: Application of SynEM to a dataset segmented by SegEM
 
 

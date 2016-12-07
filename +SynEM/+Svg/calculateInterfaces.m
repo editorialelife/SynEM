@@ -15,7 +15,7 @@ function [ interfaces, intIdx, edges, borders ] = calculateInterfaces( ...
 %           (Default: will be calculated from seg using
 %                     SynEm.Svg.findEdgesAndBorders)
 %       areaT: int
-%           Lower area threshold on border size. Only borders with
+%           Lower area/size threshold on border size. Only borders with
 %           size > areaT are considered.
 %       voxelSize: [1x3] double
 %           Voxel size per pixel in nm.
@@ -31,8 +31,8 @@ function [ interfaces, intIdx, edges, borders ] = calculateInterfaces( ...
 %               M = length(interfaceSurface) which contains the linear
 %               indices of the first and second subsegment w.r.t. seg.
 %        intIdx: [Nx1] logical
-%           Logical indices of the borders that were considered for
-%           interface calculation.
+%           Logical indices of the edges and borders that were considered
+%           for interface calculation after applying the size threshold.
 %        edges: see input
 %        bordes: see input
 % Author: Benedikt Staffler <benedikt.staffler@brain.mpg.de>
