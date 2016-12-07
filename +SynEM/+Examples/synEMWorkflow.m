@@ -10,10 +10,11 @@ end
 %% Load raw data and segmentation
 % tested for raw and seg of size [512, 512, 256]
 
-m = load('raw.mat');
+m = load('TestSet_raw_seg');
 raw = m.raw;
-m = load('seg.mat');
 seg = m.seg;
+raw = raw(101:end-100,101:end-100,41:end-40);
+seg = seg(101:end-100,101:end-100,41:end-40);
 
 %% Interface calculation for a segmentation
 
@@ -42,3 +43,20 @@ fm = SynEM.getFeatureMap('paper');
 fm.setSelectedFeat(imp > 0); %all features that contribute
 disp(['Selected ' num2str(fm.numFeaturesSelected) ' features.']);
 X = fm.calculate(interfaces, raw);
+
+%% annotate interfaces in SynapseAnnotationGUI
+
+m = load('TestSet_raw_seg.mat');
+raw = m.raw;
+seg = m.seg;
+[data, metadata] = SynEM.Util.convertForSynapseAnnotationGUI(raw, seg, ...
+    interfaces, edges, [512, 512, 256]);
+if ~exist('TestCube.mat','file')
+    save('TestCube.mat', 'data', 'metadata');
+else
+    error('TestCube.mat already exists. Please save the file manually.');
+end
+
+%start annotation GUI and use the load button to select the 'TestCube.mat'
+%file
+SynapseAnnotator();
