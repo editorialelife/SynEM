@@ -10,7 +10,11 @@ end
 %% Load raw data and segmentation
 % tested for raw and seg of size [512, 512, 256]
 
-m = load('TestSet_raw_seg');
+if ~exist('TestSet_raw_seg.mat', 'file')
+    error(['Please download the file ''TestSet_raw_seg.mat'' from the ' ...
+        'SynEM website first.']);
+end
+m = load('TestSet_raw_seg.mat');
 raw = m.raw;
 seg = m.segments;
 fm = SynEM.getFeatureMap('paper');
