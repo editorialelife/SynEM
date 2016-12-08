@@ -1,37 +1,40 @@
 # SynEM
 
-Code for synapse detection via neurite interface classification.
+Code for synapse detection via neurite interface classification
+(Staffler etl al.)
 
 ## Content
 
 * SynEM: Code package for neurite interface classification (check the
 README.md in the package for further information
 * SynapseAnnotationGUI: Code for the manual neurite interface annotation
-GUI.
+GUI (Suppl. Fig. 1a in Staffler et al.)
 * data: Data for examples and prediction
 
 ## Setup
 
-The Matlab-mex compiler has to be configured. This can be done done by
+MATLAB R2015b or higher is required. The Matlab-mex compiler has to be
+configured. This can be done done by
 typing “mex -setup” in command line or the Matlab command prompt.
 In case your system does not have a compiler installed please follow the
-instructions by Mathworks. This is required to compile some of the routines
+instructions by Mathworks. This is required to compile some of the routine
 for the user’s computer.
 
-Before using SynEM for the first time run the setup.m file in from the
-SynEM main folder with the SynEM main folder set to the working directory.
+Before using SynEM for the first time run the setup.m file from the
+SynEM main folder (the same folder that this readme file is located in)
+with the SynEM main folder set to the working directory.
 
 ## Usage
 
 Code was tested with MATLAB R2015b.
 
-Examples for code are contained in the package SynEM.Examples:
-* neuron2neuronErrorEstimates.m: How to use the error estimation framework
-* synEMWorkflow.m: Direct application of SynEM using only a volume
+The package SynEM.Examples contains examples for running SynEM:
+* synEMWorkflow.m: Direct test application of SynEM using only a volume
 segmentation and raw data array
+* neuron2neuronErrorEstimates.m: How to use the connectome error estimation
+ (Fig. 3 in Staffler et al.)
 
-To run the scripts in the Matlab command window the full name of the script
-must be specified, e.g.
+To test run SynEM, type the following the Matlab command 
 ```
 >> SynEM.Examples.synEMWorkflow
 ```
