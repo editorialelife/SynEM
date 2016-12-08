@@ -29,7 +29,6 @@ Examples for code are contained in the package SynEM.Examples:
 * neuron2neuronErrorEstimates.m: How to use the error estimation framework
 * synEMWorkflow.m: Direct application of SynEM using only a volume
 segmentation and raw data array
-* predictDataset.m: Application of SynEM to a dataset segmented by SegEM
 
 To run the scripts in the Matlab command window the full name of the script
 must be specified, e.g.

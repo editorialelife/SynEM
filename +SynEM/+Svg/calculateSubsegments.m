@@ -42,6 +42,7 @@ subsegmentsList = arrayfun(@(x)cell(length(interfaceSurfaceList), 2), ...
     1:length(rinclude), 'UniformOutput', false);
 
 %calculate subsegments for each interface
+fprintf('Subsegment calculation: 0%%');
 for i = 1:length(interfaceSurfaceList)
 
     %get contact wall subscript indices
@@ -79,7 +80,15 @@ for i = 1:length(interfaceSurfaceList)
                 subsegCoords(:,1),subsegCoords(:,2),subsegCoords(:,3)));
         end
     end
+    
+    %progress bar
+    if floor(i/length(interfaceSurfaceList)*100) < 10
+        fprintf('\b\b%d%%',floor(i/length(interfaceSurfaceList)*100));
+    else
+        fprintf('\b\b\b%d%%',floor(i/length(interfaceSurfaceList)*100));
+    end
 end
+fprintf('\n');
 
 fprintf(['[%s] SynEM.Svg.calculateSubsegments - Finished subsegment ', ...
     'calculation.\n'], datestr(now));

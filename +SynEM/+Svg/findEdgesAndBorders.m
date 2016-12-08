@@ -98,6 +98,7 @@ borderAdjacency = cell(length(uid),1);
 currGroupId = 1;
 edgesNew = zeros(3*size(diffEdge,1),2,'like',edges);
 borderPixelMat = false(size(seg)); %avoid slow ismember for adjacency_list
+fprintf('Border calculation:  0%%');
 for i = 1:length(diffEdge) - 1
     
     %get all voxels of unique edge
@@ -134,7 +135,13 @@ for i = 1:length(diffEdge) - 1
         
         currGroupId = currGroupId + 1;
     end
+    if floor(i/(length(diffEdge) - 1)*100) < 10
+        fprintf('\b\b%d%%',floor(i/(length(diffEdge) - 1)*100));
+    else
+        fprintf('\b\b\b%d%%',floor(i/(length(diffEdge) - 1)*100));
+    end
 end
+fprintf('\n');
 
 %final edges list
 edgesNew(currGroupId:end,:) = [];
