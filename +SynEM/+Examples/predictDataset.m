@@ -1,6 +1,7 @@
 %% Synapse prediction for a dataset segmented by SegEM
 
 %load segmentation parameter file (see setParameterSetting in SegEM code)
+%for a precalculated SegEM segmentation
 m = load('allParameter.mat');
 parameter = m.p;
 
