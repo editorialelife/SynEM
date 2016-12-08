@@ -13,7 +13,7 @@ interface annotation (Suppl. Fig. 1a in Staffler et al.)
 ## Setup
 
 MATLAB R2015b or higher is required. The Matlab-mex compiler has to be
-configured. This can be done done by
+configured. This can be done by
 typing “mex -setup” in command line or the Matlab command prompt.
 In case your system does not have a compiler installed please follow the
 instructions by Mathworks. This is required to compile some of the routine
