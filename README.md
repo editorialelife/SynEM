@@ -33,8 +33,11 @@ segmentation and raw data array
 
 To run the scripts in the Matlab command window the full name of the script
 must be specified, e.g.
+```
 >> SynEM.Examples.synEMWorkflow
+```
 or
+```
 >> run('SynEM.Examples.synEMWorkflow.m')
-
+```
 
