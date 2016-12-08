@@ -6,6 +6,7 @@ if ~exist('+SynEM','dir') || ~exist('SynapseAnnotationGUI','dir') || ...
            'folder containing the +SynEM, SynapseAnnotationGUI and ' ...
            'data subdirectories'])
 end
+addpath(genpath(pwd)) %add SynEM repository to path
 
 %% Load raw data and segmentation
 % tested for raw and seg of size [512, 512, 256]
