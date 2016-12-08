@@ -7,6 +7,4 @@ if ~exist('+SynEM','dir') || ~exist('SynapseAnnotationGUI','dir')
 end
 
 %compile mex-files
-cd +SynEM/+Aux
-mex eig3S.cpp
-cd ../..
+mex -v CXX='/usr/bin/g++-4.7' CXXFLAGS='$CXXFLAGS -std=c++11' -outdir +SynEM/+Aux +SynEM/+Aux/eig3S.cpp
