@@ -1,7 +1,9 @@
-function fm = getFeatureMap( name )
+function fm = getFeatureMap( name, varargin )
 %GETFEATUREMAP Create a predefined feature map.
 % INPUT name: string
 %           Name of the feature map (see below).
+%       varargin: Any arguments required for specific feature maps.
+%           For 'paper' varargin{1} specifies the voxel size in nm.
 % OUTPUT fm: SynEM.FeatureMap object
 % Author: Benedikt Staffler <benedikt.staffler@brain.mpg.de>
 
@@ -13,7 +15,11 @@ switch name
         areaT = 150;
         subvolsSize = [40 80 160];
         quantiles = [0.25 0.5 0.75 0 1];
-        voxelSize = [11.24, 11.24, 28];
+        if ~isempty(varargin)
+            voxelSize = varargin{1};
+        else
+            voxelSize = [11.24, 11.24, 28];
+        end
         moments = true(4,1);
         sigma = 12./voxelSize;
         fS = ceil(2.*sigma);
