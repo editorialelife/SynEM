@@ -7,7 +7,7 @@ Code for synapse detection via neurite interface classification
 
 * SynEM: Code package for neurite interface classification
 * SynapseAnnotationGUI: Graphical User Interface for manual neurite
-interface annotation (Suppl. Fig. 1a in Staffler et al.)
+interface annotation (Figure 3 - figure supplement 1 in Staffler et al.)
 * data: Data for examples and prediction
 
 ## Setup
@@ -31,7 +31,7 @@ The package SynEM.Examples contains examples for running SynEM:
 * synEMWorkflow.m: Direct test application of SynEM using only a volume
 segmentation and raw data array
 * neuron2neuronErrorEstimates.m: How to use the connectome error estimation
- (Fig. 3 in Staffler et al.)
+ (Fig. 5 in Staffler et al.)
 
 To test run SynEM, execute the following Matlab command 
 ```

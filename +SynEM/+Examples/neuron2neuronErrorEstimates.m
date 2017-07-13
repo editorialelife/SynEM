@@ -1,7 +1,7 @@
 %% Calculate neuron-to-neuron recall/precision estimates
 
 %test set recall/precision values
-m = load('data/Figure3Data_v3.mat');
+m = load('data/Figure5Data.mat');
 rp = m.testSet.rpExc;
 
 %number of synapse between neurons distribution
